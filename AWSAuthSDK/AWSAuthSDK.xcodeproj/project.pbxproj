@@ -383,6 +383,48 @@
 			remoteGlobalIDString = B5FC69001FAFA1AA004790CB;
 			remoteInfo = AWSMobileClient;
 		};
+		59A86BEC2707ADB800B29007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFC7D26C2FBAC00F0DB75;
+			remoteInfo = AWSChimeSDKIdentity;
+		};
+		59A86BEE2707ADB800B29007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFC8526C2FBAD00F0DB75;
+			remoteInfo = AWSChimeSDKIdentityTests;
+		};
+		59A86BF02707ADB800B29007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFCED26C306E000F0DB75;
+			remoteInfo = AWSChimeSDKIdentityUnitTests;
+		};
+		59A86BF22707ADB800B29007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFC9F26C2FF4600F0DB75;
+			remoteInfo = AWSChimeSDKMessaging;
+		};
+		59A86BF42707ADB800B29007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFCA726C2FF4700F0DB75;
+			remoteInfo = AWSChimeSDKMessagingTests;
+		};
+		59A86BF62707ADB800B29007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFCDE26C3069900F0DB75;
+			remoteInfo = AWSChimeSDKMessagingUnitTests;
+		};
 		6BB7BFA123E5E8FB0026E789 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
@@ -2059,6 +2101,12 @@
 				B51E4F66215449FB001BC958 /* AWSTranslate.framework */,
 				B51E4F70215449FB001BC958 /* AWSTranslateTests.xctest */,
 				B51E4F68215449FB001BC958 /* AWSTranslateUnitTests.xctest */,
+				59A86BED2707ADB800B29007 /* AWSChimeSDKIdentity.framework */,
+				59A86BEF2707ADB800B29007 /* AWSChimeSDKIdentityTests.xctest */,
+				59A86BF12707ADB800B29007 /* AWSChimeSDKIdentityUnitTests.xctest */,
+				59A86BF32707ADB800B29007 /* AWSChimeSDKMessaging.framework */,
+				59A86BF52707ADB800B29007 /* AWSChimeSDKMessagingTests.xctest */,
+				59A86BF72707ADB800B29007 /* AWSChimeSDKMessagingUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2692,6 +2740,48 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		59A86BED2707ADB800B29007 /* AWSChimeSDKIdentity.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSChimeSDKIdentity.framework;
+			remoteRef = 59A86BEC2707ADB800B29007 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		59A86BEF2707ADB800B29007 /* AWSChimeSDKIdentityTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKIdentityTests.xctest;
+			remoteRef = 59A86BEE2707ADB800B29007 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		59A86BF12707ADB800B29007 /* AWSChimeSDKIdentityUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKIdentityUnitTests.xctest;
+			remoteRef = 59A86BF02707ADB800B29007 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		59A86BF32707ADB800B29007 /* AWSChimeSDKMessaging.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSChimeSDKMessaging.framework;
+			remoteRef = 59A86BF22707ADB800B29007 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		59A86BF52707ADB800B29007 /* AWSChimeSDKMessagingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKMessagingTests.xctest;
+			remoteRef = 59A86BF42707ADB800B29007 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		59A86BF72707ADB800B29007 /* AWSChimeSDKMessagingUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKMessagingUnitTests.xctest;
+			remoteRef = 59A86BF62707ADB800B29007 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6BB7BFA223E5E8FB0026E789 /* AWSConnectParticipant.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -3985,6 +4075,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -4045,6 +4136,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
