@@ -297,7 +297,6 @@ extension AWSMobileClient {
                         } else if let error = task.error {
                             self.pendingAWSCredentialsCompletion?(nil, error)
                         }
-                        self.credentialsFetchLock.leave()
                         self.pendingAWSCredentialsCompletion = nil
                         return nil
                     })
@@ -777,7 +776,7 @@ extension AWSMobileClient {
                     done()
                     return nil
                 }
-                
+
                 if let error = task.error {
                     if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
@@ -789,7 +788,10 @@ extension AWSMobileClient {
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .oidcFederation {
                         // store a reference to the completion handler which we would be calling later on.
-                        self.pendingAWSCredentialsCompletion = completionHandler
+                        self.pendingAWSCredentialsCompletion = { credentials, error in
+                            completionHandler(credentials, error)
+                            done()
+                        }
                         
                         self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                     } else {
@@ -825,7 +827,6 @@ extension AWSMobileClient {
         } else if self.federationProvider == .oidcFederation {
             self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil
-            self.credentialsFetchLock.leave()
         }
     }
 
