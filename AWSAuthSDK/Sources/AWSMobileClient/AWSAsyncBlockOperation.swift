@@ -11,22 +11,8 @@ public typealias AWSAsyncBlockDoneClosure = () -> Void
 public typealias AWSAsyncBlockClosure = (@escaping AWSAsyncBlockDoneClosure) -> Void
 
 public class AWSAsyncBlockOperation: Operation {
-    let asyncBlock: AWSAsyncBlockClosure
-
-    var state: AWSAsyncBlockState = .ready
-
-    // handle KVO events before changing state
-    func transition(to newState: AWSAsyncBlockState) {
-        guard state != newState else { return }
-
-        willChangeValue(forKey: newState.rawValue)
-        willChangeValue(forKey: state.rawValue)
-
-        state = newState
-
-        didChangeValue(forKey: newState.rawValue)
-        didChangeValue(forKey: state.rawValue)
-    }
+    private let asyncBlock: AWSAsyncBlockClosure
+    private var state: AWSAsyncBlockState = .ready
 
     public override var isReady: Bool {
         state == .ready
@@ -66,5 +52,18 @@ public class AWSAsyncBlockOperation: Operation {
 
     public override func cancel() {
         transition(to: .cancelled)
+    }
+
+    // handle KVO events before changing state
+    private func transition(to newState: AWSAsyncBlockState) {
+        guard state != newState else { return }
+
+        willChangeValue(forKey: newState.rawValue)
+        willChangeValue(forKey: state.rawValue)
+
+        state = newState
+
+        didChangeValue(forKey: newState.rawValue)
+        didChangeValue(forKey: state.rawValue)
     }
 }
