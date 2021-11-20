@@ -63,7 +63,7 @@ public class AWSAsyncBlockOperation: Operation {
 
         state = newState
 
-        didChangeValue(forKey: newState.rawValue)
         didChangeValue(forKey: state.rawValue)
+        didChangeValue(forKey: newState.rawValue)
     }
 }
