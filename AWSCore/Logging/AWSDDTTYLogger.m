@@ -1217,38 +1217,37 @@ static AWSDDTTYLogger *sharedInstance;
 
         if (isFormatted) {
             // The log message has already been formatted.
-            int iovec_len = (_automaticallyAppendNewlineForCustomFormatters) ? 5 : 4;
-            struct iovec v[iovec_len];
+            BOOL shouldAppendNewLine = _automaticallyAppendNewlineForCustomFormatters && msg[msgLen] != '\n';
+            struct iovec fgCodeVec = {
+                    .iov_base = colorProfile ? colorProfile->fgCode :  "",
+                    .iov_len = colorProfile ? colorProfile->fgCodeLen : 0
+            };
 
-            if (colorProfile) {
-                v[0].iov_base = colorProfile->fgCode;
-                v[0].iov_len = colorProfile->fgCodeLen;
+            struct iovec bgCodeVec = {
+                    .iov_base = colorProfile ? colorProfile->bgCode :  "",
+                    .iov_len = colorProfile ? colorProfile->bgCodeLen : 0
+            };
 
-                v[1].iov_base = colorProfile->bgCode;
-                v[1].iov_len = colorProfile->bgCodeLen;
+            struct iovec resetCodeVec = {
+                    .iov_base = colorProfile ? colorProfile->resetCode :  "",
+                    .iov_len = colorProfile ? colorProfile->resetCodeLen : 0
+            };
 
-                v[iovec_len - 1].iov_base = colorProfile->resetCode;
-                v[iovec_len - 1].iov_len = colorProfile->resetCodeLen;
-            } else {
-                v[0].iov_base = "";
-                v[0].iov_len = 0;
+            struct iovec newLineVec = {
+                    .iov_base = shouldAppendNewLine ? "\n" : "",
+                    .iov_len = shouldAppendNewLine ? 1 : 0
+            };
 
-                v[1].iov_base = "";
-                v[1].iov_len = 0;
+            struct iovec msgVec = {
+                    .iov_base = msg,
+                    .iov_len = msgLen
+            };
 
-                v[iovec_len - 1].iov_base = "";
-                v[iovec_len - 1].iov_len = 0;
-            }
+            struct iovec v[] = {
+                    fgCodeVec, bgCodeVec, msgVec, newLineVec, resetCodeVec
+            };
 
-            v[2].iov_base = (char *)msg;
-            v[2].iov_len = msgLen;
-
-            if (iovec_len == 5) {
-                v[3].iov_base = "\n";
-                v[3].iov_len = (msg[msgLen] == '\n') ? 0 : 1;
-            }
-
-            writev(STDERR_FILENO, v, iovec_len);
+            writev(STDERR_FILENO, v, 5);
         } else {
             // The log message is unformatted, so apply standard NSLog style formatting.
 
