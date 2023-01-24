@@ -2,16 +2,20 @@
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
+### New features
+- **AWSCore**
+  - Support for `ap-sourtheast-4` - Asia Pacific (Melbourne) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
 ### Misc. Updates
 
 - Model updates for the following services
-  -AWSCloudWatchLogs
-  -AWSConnect
-  -AWSConnectParticipant
-  -AWSComprehend
-  -AWSEC2
-  -AWSLambda
-  -AWSLocation
+  - AWSCloudWatchLogs
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSComprehend
+  - AWSEC2
+  - AWSLambda
+  - AWSLocation
 
 ## 2.29.1
 
